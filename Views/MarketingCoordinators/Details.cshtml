@@ -1,0 +1,69 @@
+﻿@model WebEnterprise.Models.MarketingCoordinator
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MarketingCoordinator</h4>
+    <hr />
+    <dl class="dl-horizontal" >
+        <dt>
+            @Html.DisplayNameFor(model => model.MCName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MCName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MCAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MCAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MCPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MCPhone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MCEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MCEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Faculty.FacultyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Faculty.FacultyName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+    </dl>
+</div>
+<p>
+    @if (User.IsInRole("MarketingCoordinators"))
+    {
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MCID }) 
+    }else
+    {
+        <p></p>
+    }
+    @Html.ActionLink("Back to List", "Index")
+</p>

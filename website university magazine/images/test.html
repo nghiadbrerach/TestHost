@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>university magazine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"></script>
+    <link rel="stylesheet" href="magazine-style.css">
+
+</head>
+<body>
+    <div class="home-img-container">
+    </div>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="#">University Magazine</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li><a href="#">Home</a></li>
+
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Blog</a></li>              
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Contents <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Page 1-1</a></li>
+                  <li><a href="#">Page 1-2</a></li>
+                  <li><a href="#">Page 1-3</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div id="content">
+        <div class="feature clearfloat" id="lead"> <a href="#"><img src="images/leadpic.jpg" alt="" id="leadpic" /></a>
+          <h3> <a href="#">Lead Story</a><br />
+          </h3>
+          <a href="#" class="title"> Aliquam euismod dolor in hendrerit in vulputate </a>
+          <p>You are viewing the demo for Mimbo v2.1, now <a href="#">available for download</a>. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.</p>
+          {<a href="#">More&raquo;</a>} </div>
+        <div id="leftcol">
+          <h3> <a href="#">Features</a><br />
+          </h3>
+          <div class="feature"><a href="#"><img src="images/woman.jpg" alt="" /></a><a href="#" class="title"> Adipiscing Elit Laoreet&raquo;</a></div>
+          <div class="feature"><a href="#"><img src="images/bikes.jpg" alt="" /></a><a href="#" class="title"> Nonummy nibh euismod&raquo;</a></div>
+          <div class="feature"><a href="#"><img src="images/pool.jpg" alt="" /></a><a href="#" class="title"> Ut wisi enim&raquo;</a></div>
+        </div>
+        <div id="rightcol">
+          <div class="clearfloat">
+            <h3><a href="#">Gadgets</a></h3>
+            <a href="#"><img src="images/iphone.jpg" alt="" /></a> <a href="#" class="title">Hendrerit Sed Diam Ullamcorper&raquo;</a>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+          </div>
+          <div class="clearfloat">
+            <h3><a href="#">Music</a></h3>
+            <a href="#"><img src="images/mark.jpg" alt="" /></a> <a href="#" class="title">Diam nonummy nibh euismod&raquo;</a>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+          </div>
+          <div class="clearfloat">
+            <h3><a href="#">Style</a></h3>
+            <a href="#"><img src="images/shoes.jpg" alt="" /></a> <a href="#" class="title">Erat volutpat ut wisi&raquo;</a>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidun. Adipiscing elit, sed diam nonummy nibh euismod tincidun. Sed diam nonummy nibh euismod tincidun.</p>
+          </div>
+        </div>
+      </div>
+      <div id="sidebar">
+        <ul id="sidelist">
+          <li>
+            <h3> <a href="#">News</a><br />
+            </h3>
+            <ul class="bullets">
+              <li><a href="#">Hendrerit in vulputate velit esse molestie consequat</a></li>
+              <li><a href="#">Duis autem vel eum iriure dolor in hendrerit in vulputate</a></li>
+              <li><a href="#">Vulputate velit esse molestie consequat</a></li>
+            </ul>
+          </li>
+          <li>
+            <h3>Browse Archives</h3>
+            <form id="archiveform" action="#">
+              <select name="archive_chrono" onchange="window.location = (document.forms.archiveform.archive_chrono[document.forms.archiveform.archive_chrono.selectedIndex].value);">
+                <option value="#"> November 2007 </option>
+                <option value="#"> October 2007 </option>
+                <option value="#"> September 2007 </option>
+              </select>
+            </form>
+          </li>
+          <li>
+            <h3>Browse Categories</h3>
+            <ul class="subnav">
+              <li class="cat-item"><a href="#">Features</a> </li>
+              <li class="cat-item"><a href="#">Gadgets</a>
+                <ul class='children'>
+                  <li class="cat-item"><a href="#">Cellphones</a> </li>
+                  <li class="cat-item"><a href="#">Handhelds</a> </li>
+                </ul>
+              </li>
+              <li class="cat-item"><a href="#">Lead Story</a> </li>
+              <li class="cat-item"><a href="#">Music</a>
+                <ul class='children'>
+                  <li class="cat-item"><a href="#">CD Reviews</a> </li>
+                  <li class="cat-item"><a href="#">Live Shows</a> </li>
+                </ul>
+              </li>
+              <li class="cat-item current-cat"><a href="#">News</a> </li>
+              <li class="cat-item"><a href="#">Style</a> </li>
+            </ul>
+          </li>
+          <li>
+            <h3>Ads &amp; Sponsors</h3>
+          </li>
+          <li>
+            <h3>Contributors</h3>
+            <ul class="bullets">
+              <li><a href="#">Darren</a> <a href="#"><img src="images/rss.gif" border="0" alt="" /></a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+      <div class="footer">
+        <p>Footer</p>
+      </div>
+</body>
+</html>

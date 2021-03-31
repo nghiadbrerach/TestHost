@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WebEnterprise.Models.MarketingManager>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MMName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MMAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MMEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MMPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MMName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MMAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MMEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MMPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+           
+            @Html.ActionLink("Details", "Details", new { id=item.MMID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MMID })
+        </td>
+    </tr>
+}
+
+</table>

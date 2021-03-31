@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <link rel="stylesheet" href="~/Content/magazine-style-2.css">
+    <link rel="stylesheet" href="~/Content/css/responsive.css">
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <li>@Html.ActionLink("UoG Magazine", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li> @Html.Partial("_Login")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li style="color:red">Hello @User.Identity.Name!</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Authen")</li>
+
+                        <li>@Html.ActionLink("Change Password", "ChangePass", "Authen")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login", "Login", "Authen")</li>
+                    }
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+    <footer>
+        <div class="container text-white bg-dark">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <h3>About Us</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis lectus in fermentum ullamcorper. Etiam urna urna, viverra id ligula id, laoreet euismod mi. Proin dolor augue, semper sed sapien eu, congue aliquet eros. Vivamus et dignissim ligula. Mauris ac ligula non augue accumsan dignissim vitae vitae odio. Nulla id magna quis purus pretium semper eget vitae purus.</p>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <h3>Customer Care</h3>
+                    <p>Hotline: 0389757021</p>
+                    <p>Email: datnthe130826@fpt.edu.vn</p>
+                    <p>Serving Time: 8 AM to 11 PM / Monday to Saturday</p>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <h3>Showroom</h3>
+                    <p>- Floor 6 Ho Guom Plaza, 107 Tran Phu, Ha Noi</p>
+                    <p>Phone: 024.73.003.568</p>
+                    <p>- 1022 CMT8, P5, Tan Binh, Ho Chi Minh City </p>
+                    <p>Phone: 028.3846.4672</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

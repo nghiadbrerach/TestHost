@@ -1,0 +1,35 @@
+﻿@model WebEnterprise.Models.CTTag
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CTTag</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CTTag1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CTTag1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CTTagDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CTTagDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CTTagID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

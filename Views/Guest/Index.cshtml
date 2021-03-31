@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebEnterprise.Models.Guest>
+
+<head>
+    <meta charset="utf-8">
+    <title>university magazine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"></script>
+    <link rel="stylesheet" href="~/Content/table.css">
+</head>
+
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GuestName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GuestAddress)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GuestPhone)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.UserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GuestEmail)
+                    </th>
+                    <th></th>
+                </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GuestName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GuestAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GuestPhone)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GuestEmail)
+                        </td>
+                        <td>
+                            
+                            @Html.ActionLink("Details", "Details", new { id = item.GuestID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.GuestID })
+                        </td>
+                    </tr>
+                }
+
+        </table>
+        </div>
+</body>

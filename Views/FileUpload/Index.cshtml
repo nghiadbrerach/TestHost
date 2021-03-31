@@ -1,0 +1,85 @@
+﻿@model IEnumerable<WebEnterprise.Models.tblFile>
+@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+@* UPLOAD FILE TO DATABASE *@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        table {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+            table th {
+                background-color: #B8DBFD;
+                color: #333;
+                font-weight: bold;
+            }
+
+            table th, table td {
+                padding: 5px;
+                border: 1px solid #ccc;
+            }
+    </style>
+</head>
+<body>
+    
+    @using (Html.BeginForm("Index", "FileUpload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="postedFile" />
+        <input type="submit" id="btnUpload" value="Upload" />
+    }
+    @using (Html.BeginForm("DownloadFile", "FileUpload", FormMethod.Post))
+    {
+        <input type="hidden" id="hfFileId" name="FileId" />
+        <input type="submit" id="btnDownload" value="Download" style="display:none" />
+    }  
+    <hr />
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <th style="width:50px">File ID</th>
+            <th style="width:120px">File Name</th>
+            <th style="width:80px">Download</th>
+        </tr>
+        @if (Model.Count() > 0)
+        {
+            foreach (var file in Model)
+            {
+                <tr>
+                    <td>@file.ID</td>
+                    <td>@file.Name</td>
+                    <td><a href="javascript:;" onclick="DownloadFile(@file.ID)">Download</a></td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3">&nbsp;</td>
+            </tr>
+        }
+    </table>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        function DownloadFile(fileId) {
+            $("#hfFileId").val(fileId);
+            $("#btnDownload")[0].click();
+        };
+    </script>
+
+</body>
+<p>
+    @Html.ActionLink("View ALL", "View")
+</p>
+</html>

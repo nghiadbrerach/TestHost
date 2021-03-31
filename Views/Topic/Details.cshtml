@@ -1,0 +1,58 @@
+﻿@model WebEnterprise.Models.Topic
+
+<div>
+    <h4>Topic</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Faculty.FacultyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Faculty.FacultyName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TopicID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

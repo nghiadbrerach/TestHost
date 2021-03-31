@@ -1,0 +1,59 @@
+﻿@model WebEnterprise.Models.Guest
+
+<div>
+    <h4>Guest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GuestName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuestName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuestAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuestAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuestPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuestPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuestEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuestEmail)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (User.IsInRole("Guest"))
+    {
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GuestID }) 
+    }
+    else
+    {
+        <p></p>
+    }
+    @Html.ActionLink("Back to List", "Index")
+</p>

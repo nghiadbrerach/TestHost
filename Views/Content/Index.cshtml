@@ -1,0 +1,118 @@
+﻿@model IEnumerable<WebEnterprise.Models.Content>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<body>
+    @using (Html.BeginForm("DownloadFile", "Content", FormMethod.Post))
+    {
+        <input type="hidden" id="hfFileId" name="FileId" />
+        <input type="submit" id="btnDownload" value="Download" style="display:none" />
+    }
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CTName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CTDescription)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CTTag.CTTagName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Student.StudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name2)
+            </th>
+
+
+            <th>
+                    @Html.DisplayNameFor(model => model.TopicID)
+                </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @if (item.Data != null)
+                    {
+                        var base64 = Convert.ToBase64String(item.Data);
+                        var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                        <img src="@imgsrc" width="150" height="200" />
+                    }
+                    else
+                    {
+                        <img src="~/images/default.jpg"
+                             style="max-width:100px;max-height:100px" />
+                    }
+
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CTName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CTDescription)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CTTag.CTTagName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name2)
+                </td>
+                <td>
+
+                           @if (item.ContentAssigns.Count > 0)
+                           {
+                               @Html.DisplayFor(modelItem => item.ContentAssigns.ElementAt(0).Topic.TopicName)
+                           }
+                           else
+                           {
+                               @Html.ActionLink("Assign", "Create", "ContentAssign", new { id = item.TopicID }, null)
+                           }
+                    </td>
+
+                <td><a href="javascript:;" onclick="DownloadFile(@item.CTID)">Download</a></td>
+
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CTID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CTID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CTID })
+                </td>
+            </tr>
+
+        }
+    </table>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        function DownloadFile(fileId) {
+            $("#hfFileId").val(fileId);
+            $("#btnDownload")[0].click();
+        };
+    </script>
+</body>
+

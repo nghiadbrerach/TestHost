@@ -1,0 +1,22 @@
+
+	.footer {
+		float:left;
+		width:2000px;
+		display: flex;
+		background-color: #070707;
+		padding: 0 100px;
+	}
+	.footer .infomation {
+		color: white;
+		margin: 0 250px 0 0;
+	}
+	.footer a {
+		text-decoration: none;
+		color: white;
+		display: block;
+		line-height: 1.8;
+	}
+	.footer-bottom {
+		background-color: #717171;
+	}
+

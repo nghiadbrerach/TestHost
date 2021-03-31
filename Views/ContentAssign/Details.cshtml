@@ -1,0 +1,140 @@
+﻿@using WebEnterprise.Models;
+@model WebEnterprise.Models.ContentAssign
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<head runat="server">
+    <title></title>
+    <script type="text/javascript">
+        function Navigate() {
+            history.go(-1);
+        }
+    </script>
+</head>
+<body>
+    <h4>ContentAssign</h4>
+    <hr />
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <dl class="dl-horizontal" style="border-style:solid; border-color:black; border-width:1px;">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Topic.TopicName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Topic.TopicName)
+                        </dd>
+                        <dt>
+                            @*@Html.DisplayNameFor(model => model.Content.Data)*@
+                        </dt>
+                        <dd>
+                            @if (Model.Content.Data2 != null)
+                            {
+                                var base64 = Convert.ToBase64String(Model.Content.Data2);
+                                var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                                <img src="@imgsrc" width="150" height="200" />
+                            }
+                            else
+                            {
+                                <img src="~/images/default.jpg"
+                                     style="max-width:100px;max-height:100px" />
+                            }
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Content.CTName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Content.CTName)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Content.Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Content.Name)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MarketingCoordinator.MCName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.MarketingCoordinator.MCName)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.StatusID)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Status.GiveStatus)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CommentA)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.CommentA)
+                        </dd>
+
+                        <dd>
+                            @ViewBag.cmt
+                        </dd>
+
+
+                    </dl>
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <table cellspacing="0" cellpadding="0" border="0" width="325" ">
+                        <tr>
+                            <td>
+                                <table cellspacing="0" cellpadding="1" border="1" width="600">
+                                    <tr style="color:white;background-color:grey">
+                                        <th class="text-center" colspan="3">Comment</th>
+                                    </tr>
+                                    <tr style="color:white;background-color:grey">
+                                        <th class="text-center">Date</th>
+                                        <th class="text-center">Name</th>
+                                        <th class="text-center">Commentary</th>
+                                    </tr>
+                                    @foreach (var item in ViewBag.Comments)
+                                    {
+                                        <tr>
+                                            <td class="text-center">(@item.CommentDate)&ensp;</td>
+                                            <td class="text-center">@item.AuthorName&ensp;</td>
+                                            <td class="text-center">@item.CommentText</td>
+                                            @*<td>@item.CommentText</td>*@
+                                        </tr>
+                                    }
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <p>
+                        @Html.ActionLink("Comment", "WriteCMT", new { id = Model.CTassignID })
+                    </p>
+                </div>
+            </div>
+        </div>
+
+</body>
+<p>
+    @if (User.IsInRole("Student"))
+    {
+
+        <form id="form1" runat="server">
+            <div>
+                <input action="action" type="button" value="Back" onclick="Navigate();" />
+            </div>
+        </form>
+    }
+    @if (User.IsInRole("MarketingCoordinator"))
+    {
+        @Html.ActionLink("Back to list", "Index")
+    }
+</p>

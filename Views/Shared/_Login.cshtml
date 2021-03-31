@@ -1,0 +1,24 @@
+﻿
+@if (Request.IsAuthenticated)
+{
+    
+    if (User.IsInRole("Student"))
+    {
+        @Html.Partial("_Student");
+    }
+    else if (User.IsInRole("MarketingCoordinator"))
+    {
+        @Html.Partial("_MarketingCoordinator");
+    }
+    else if (User.IsInRole("Admin"))
+    {
+        @Html.Partial("_Admin");
+    }
+    else if (User.IsInRole("ManagerMarketing"))
+    {
+        @Html.Partial("_MarketingManager");
+    }
+}
+
+}
+

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<WebEnterprise.Models.MarketingCoordinator>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta charset="utf-8">
+    <title>university magazine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"></script>
+    <link rel="stylesheet" href="~/Content/table.css">
+</head>
+
+<body>
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MCID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MCName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MCAddress)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MCPhone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MCEmail)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Faculty)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UserName)
+                    </th>
+                    <th></th>
+                </tr>
+                
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MCID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MCName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MCAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MCPhone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MCEmail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Faculty.FacultyName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                           
+                            @Html.ActionLink("Details", "Details", new { id = item.MCID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.MCID })
+                        </td>
+                    </tr>
+                }
+
+        </table>
+        </div>
+</body>

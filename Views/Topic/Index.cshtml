@@ -1,0 +1,72 @@
+﻿@model IEnumerable<WebEnterprise.Models.Topic>
+<head>
+    <meta charset="utf-8">
+    <title>university magazine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"></script>
+    <link rel="stylesheet" href="~/Content/table.css">
+</head>
+
+<body>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TopicID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TopicName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TopicDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EndDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Faculty.FacultyID)
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TopicID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TopicName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TopicDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Faculty.FacultyName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.TopicID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.TopicID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.TopicID })
+                    </td>
+                </tr>
+            }
+
+    </table>
+</div>
+</body>

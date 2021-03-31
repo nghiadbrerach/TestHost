@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "ChangePass";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ChangePass</h2>
+<table class="table">
+    <form action="/Authen/ChangePass" method="post">
+        <table>
+            <tr>
+                <td>cureentPasss:</td>
+                <td><input type="password" name="current" value="" /></td>
+            </tr>
+            <tr>
+                <td> newPass:</td>
+                <td> <input type="password" name="newPass" value="" />   </td>
+            </tr>
+            <tr>
+                <td> Confirm new password</td>
+                <td> <input type="password" name="ConfirmNewPass" value="" />   </td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="name" value="submit" /></td>
+            </tr>
+
+            @if (TempData["message"] != null)
+            {
+                <script type="text/javascript">
+                 alert(@Html.Raw(Json.Encode(TempData["message"])));
+                </script>
+            }
+
+        </table>
+    </form>
+</table>

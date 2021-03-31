@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "SubmitArticle";
+}
+
+<h2>SubmitArticle</h2>
+
+<div class="jumbotron">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>Title</td>
+                <td><input type="text" id="Art_title" /></td>
+            </tr>
+            <tr>
+                <td>File Attachment:</td>
+                <td><input type="file" name="file" multiple="multiple" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>@Html.CheckBox("ID", false) I've accept to the lisence<br /><input type="submit" value="Send" /></td>
+            </tr>
+        </table>}
+</div>

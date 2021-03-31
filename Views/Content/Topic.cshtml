@@ -1,0 +1,74 @@
+﻿@model IEnumerable<WebEnterprise.Models.Topic>
+@{
+    ViewBag.Title = "Topic";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta charset="utf-8">
+    <title>university magazine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"></script>
+    <link rel="stylesheet" href="~/Content/table.css">
+</head>
+
+<body>
+    <table class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TopicID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TopicName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TopicDescription)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StartDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EndDate)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TopicID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TopicName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TopicDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndDate)
+                    </td>
+                    <td>
+                        @if (DateTime.Now < item.EndDate)
+                        {
+                            @Html.ActionLink("Add. . .", "Create", new { id = item.TopicID })
+                        }
+                        else
+                        {
+                           <p> Expired </p>
+                        }
+                        
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+</body>

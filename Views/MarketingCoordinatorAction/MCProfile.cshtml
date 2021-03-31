@@ -1,0 +1,67 @@
+﻿@model WebEnterprise.Models.MarketingCoordinator
+
+<div>
+    <h4>MarketingCoordinator</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MCID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MCID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MCName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MCName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MCAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MCAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MCPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MCPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MCEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MCEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Faculty.FacultyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Faculty.FacultyName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MCID })
+    @Html.ActionLink("Back", "Index", "Home")
+</p>

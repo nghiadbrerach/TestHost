@@ -1,0 +1,58 @@
+﻿@model WebEnterprise.Models.MarketingManager
+@{
+    ViewBag.Title = "MMProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MMProfile</h2>
+
+<div>
+    <h4>MarketingManager</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MMName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MMName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MMAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MMAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MMEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MMEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MMPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MMPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MMID }) |
+    @Html.ActionLink("Back", "Index","Home")
+</p>
